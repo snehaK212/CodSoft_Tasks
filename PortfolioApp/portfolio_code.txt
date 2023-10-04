@@ -1,0 +1,842 @@
+Portfolio Website using HTML / CSS / JavaScript
+===============================================
+
+Project Setup :
+===============
+
+Creating Files : We will need three files. index.html, styles.css & script.js
+
+* Google Font Icons : We will be using Icons from the Google Font Icons. They provide a huge list of icons which we can use in our website.
+
+* IonIcons : We will also be using Icons from IonIcons. 
+
+Basic index.html file str.
+--------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website</title>
+    <!-- google font icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- local css file -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ion icons import -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- local js file -->
+    <script src="script.js"></script>
+  </body>
+</html>
+
+==================================================================================
+
+styles.css
+==========
+
+* {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+/* css variables */
+:root {
+  --white: #fff;
+  --dark-gray: #ababab;
+  --light-gray: #808080;
+  --dark-bg: #222222;
+  --light-bg: #333333;
+  --yellow: #bac964;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--light-bg);
+}
+
+body {
+  background-color: var(--dark-bg);
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.heading {
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: 200;
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+.heading span {
+  font-weight: 700;
+}
+
+.btn {
+  background-color: var(--yellow);
+  font-size: 1.7rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-right: 1rem;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+=================================================
+
+Home Section Code for index.html :
+----------------------------
+
+<!-- home section starts -->
+<section class="home" id="home">
+  <h1 class="home-text">
+    hello, i'm <br />
+    <span>Rajesh Kumar</span>
+  </h1>
+  <p>this is my resume</p>
+</section>
+<!-- home section ends -->
+
+
+Home Section Code for style.css:
+--------------------------------
+
+/* home */
+.home {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/home-image.jpeg');
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.home .home-text {
+  font-size: 7rem;
+  color: var(--white);
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.home .home-text span {
+  font-weight: 800;
+}
+
+.home p {
+  color: var(--dark-gray);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+/* home */
+
+==================================================
+
+Header Section Code for index.html :
+------------------------------------
+
+<!-- header section starts -->
+<header class="header">
+  <a><i class="menu material-icons"> menu </i></a>
+  <nav class="navbar">
+    <a href="#">home</a>
+    <a href="#about">about</a>
+    <a href="#resume">resume</a>
+    <a href="#certifications">certifications</a>
+    <a href="#projects">projects</a>
+    <a href="#contact">contact</a>
+  </nav>
+</header>
+<!-- header section ends -->
+
+
+
+Header Section Code for style.css:
+--------------------------------
+/* header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5rem 9%;
+  z-index: 100;
+}
+
+.header.active {
+  background-color: var(--white);
+  padding: 3rem 9%;
+}
+
+.header.active .navbar a {
+  color: var(--dark-bg);
+}
+
+.header.active .navbar a:hover {
+  color: var(--yellow);
+}
+
+.header.active .menu {
+  color: var(--dark-bg);
+}
+
+.header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .navbar a {
+  font-size: 1.5rem;
+  color: var(--white);
+  padding: 0 2rem;
+  letter-spacing: 0.3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.header .menu {
+  font-size: 2.5rem;
+  color: var(--white);
+  cursor: pointer;
+  text-align: left;
+  display: none;
+}
+/* header */
+
+===================================
+
+script.js code
+--------------
+document.onscroll = () => {
+  if (window.scrollY > 0) {
+    document.querySelector('.header').classList.add('active');
+  } else {
+    document.querySelector('.header').classList.remove('active');
+  }
+};
+
+document.onload = () => {
+  if (window.scrollY > 0) {
+    document.querySelector('.header').classList.add('active');
+  } else {
+    document.querySelector('.header').classList.remove('active');
+  }
+};
+
+
+========================================================================
+
+AboutUs Section Code for index.html :
+------------------------------------
+About section will have two columns, one for the image and one for the content. Using grid we can create columns easily.
+
+
+<!-- about section starts -->
+<section class="about" id="about">
+  <div class="box-container">
+    <div class="box">
+      <div class="image">
+        <img src="images/home-image.jpeg" alt="" />
+      </div>
+    </div>
+
+    <div class="box">
+      <h1 class="heading">about <span>me</span></h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto quibusdam illum
+        repellat aperiam ratione quidem voluptatem quod, non modi sequi debitis quas tenetur atque
+        voluptas rem quo alias nesciunt. Similique?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda harum sed laboriosam modi
+        maiores numquam?
+      </p>
+      <a href="#" class="btn">hire me</a>
+      <a href="#" class="btn">download cv</a>
+    </div>
+  </div>
+</section>
+<!-- about section ends -->
+
+AboutUs Section Code for style.css :
+------------------------------------
+/* about */
+.about .box-container .box .image {
+  height: 100%;
+  overflow: hidden;
+}
+
+.about .box-container .box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 4rem;
+}
+
+.about .box-container .box p {
+  color: var(--dark-gray);
+  margin-bottom: 2rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+  text-transform: none;
+}
+/* about */
+
+======================================
+
+Resume Section code for index.html :
+--------------------------------------
+
+Again we will use the power of grid to create two columns. One for the education and one for the experience.
+
+<!-- resume section starts -->
+<section class="resume" id="resume">
+  <h1 class="heading">my <span>resume</span></h1>
+  <div class="col-container">
+    <div class="col">
+      <h2>education</h2>
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2019 - Jan 2020</span>
+        <h3>masters in computer science</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2020 - Jan 2021</span>
+        <h3>masters in computer science</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2021 - Jan 2022</span>
+        <h3>masters in computer science</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2022 - present</span>
+        <h3>masters in computer science</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <h2>experience</h2>
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2019 - Jan 2020</span>
+        <h3>lead software developer</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2020 - Jan 2021</span>
+        <h3>lead software developer</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2021 - Jan 2022</span>
+        <h3>lead software developer</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+
+      <div class="box">
+        <span><i class="material-icons"> calendar_today </i> Jan 2022 - present</span>
+        <h3>lead software developer</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam ut perferendis quas
+          tenetur adipisci sunt!
+        </p>
+        <p class="university">new york university</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- resume section ends -->
+
+
+Resume css code for style.css
+------------------------------
+/* resume */
+.resume .col-container .col .box {
+  background-color: var(--light-bg);
+  padding: 2.5rem;
+  margin: 2rem 0;
+  box-shadow: var(--box-shadow);
+}
+
+.resume .col-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 4rem;
+}
+
+.resume .col-container .col h2 {
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: 200;
+  padding-bottom: 2rem;
+}
+
+.resume .col-container .col .box span {
+  color: var(--white);
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+}
+
+.resume .col-container .col .box span i {
+  padding-right: 0.5rem;
+  font-size: 1.7rem;
+}
+
+.resume .col-container .col .box h3 {
+  color: var(--yellow);
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+.resume .col-container .col .box p {
+  font-size: 1.7rem;
+  color: var(--dark-gray);
+  margin-top: 1rem;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.resume .col-container .col .box .university {
+  color: var(--light-gray);
+  text-transform: capitalize;
+}
+/* resume */
+
+=========================================================
+
+Project Certifications index.html :
+----------------------------
+
+For the certifications section we will use grid to create responsive columns. For the large screen we will have three columns and will reduce the number of columns as our screen gets smaller. When we hover on the image we will make the image scale up and make the content appear from bottom.
+
+<!-- Certifications section starts -->
+<section class="certificate" id="certificate">
+  <h1 class="heading">featured <span>Certifications</span></h1>
+
+  <div class="box-container">
+    <div class="box">
+      <div class="image">
+        <img src="images/Certifications1.jpeg" alt="" />
+        <div class="content">
+          <h2>Certifications #1</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img src="images/Certifications2.jpeg" alt="" />
+        <div class="content">
+          <h2>Certifications #2</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img src="images/Certifications3.jpeg" alt="" />
+        <div class="content">
+          <h2>Certifications #3</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img src="images/Certifications.jpeg" alt="" />
+        <div class="content">
+          <h2>Certifications #4</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img src="images/Certifications.jpeg" alt="" />
+        <div class="content">
+          <h2>Certifications #5</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+        <img src="images/Certifications.jpeg" alt="" />
+        <div class="content">
+          <h2>Certifications #6</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Certifications section ends -->
+
+
+Certifications code style.css
+------------------------------------
+/* Certifications */
+.certificate .box-container .box .image {
+  height: 30rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.certificate .box-container .box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.certificate .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 4rem;
+}
+
+.certificate .box-container .box {
+  background-color: var(--light-bg);
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.certificate .box-container .box:hover .image img {
+  transform: scale(1.2);
+}
+
+.certificate .box-container .box .image .content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--light-bg);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+}
+
+.certificate .box-container .box .image .content h2 {
+  font-size: 2rem;
+  color: var(--white);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.certificate .box-container .box:hover .image .content {
+  transform: translateY(0);
+}
+/* certifications */
+
+======================================================
+
+Contact Section code index.html :
+
+Our contact section will have one column for the form and another column for the contact information.
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  <h1 class="heading">get <span>in touch</span></h1>
+  <div class="col-container">
+    <div class="col">
+      <h2>get in touch</h2>
+      <input type="text" placeholder="your name" />
+      <input type="email" placeholder="your email" />
+      <input type="text" placeholder="your phone" />
+      <textarea name="" placeholder="write a message" id="" cols="30" rows="10"></textarea>
+      <a href="#" class="btn">send message</a>
+    </div>
+
+    <div class="col">
+      <h2>my contact details</h2>
+      <p>email</p>
+      <span>site@gmail.com</span>
+      <br />
+      <br />
+      <p>phone</p>
+      <span>+30 976 1234 3434</span>
+      <br />
+      <br />
+      <p>fax</p>
+      <span>+30 976 1234 3434</span>
+      <br />
+      <br />
+      <p>address</p>
+      <span>
+        san francisco, CA <br />
+        4th floor 8 lower <br />
+        san francisco street, m1 50f
+      </span>
+    </div>
+  </div>
+</section>
+<!-- contact section ends -->
+
+
+CSS code for style.css
+------------------------
+/* contact */
+.contact .col-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 6rem;
+}
+
+.contact .col-container .col h2 {
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: 200;
+  padding-bottom: 5rem;
+}
+
+.contact .col-container .col input,
+.contact .col-container .col textarea {
+  background-color: var(--light-bg);
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.7rem;
+  color: var(--dark-gray);
+  margin: 0.5rem 0;
+  resize: vertical;
+}
+
+.contact .col-container .col p {
+  font-size: 1.7rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.contact .col-container .col span {
+  font-size: 1.5rem;
+  color: var(--dark-gray);
+  letter-spacing: 0.1rem;
+}
+/* contact */
+
+========================================
+
+Footer Section :
+
+Lets keep our footer simple. We will use icons from the icon icons. Refer the code below to import those required icons.
+
+<!-- footer section starts -->
+<section class="footer" id="footer">
+  <div class="socials">
+    <ion-icon name="logo-google"></ion-icon>
+    <ion-icon name="logo-twitter"></ion-icon>
+    <ion-icon name="logo-youtube"></ion-icon>
+    <ion-icon name="logo-linkedin"></ion-icon>
+  </div>
+  <p>desinged and developed by She Arise Trainees</p>
+</section>
+<!-- footer section ends -->
+
+/* footer */
+.footer {
+  border-top: 0.2rem solid var(--light-bg);
+  text-align: center;
+}
+
+.footer .socials ion-icon {
+  font-size: 2.5rem;
+  color: var(--yellow);
+  background-color: var(--light-bg);
+  border-radius: 50%;
+  padding: 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.footer p {
+  font-size: 1.7rem;
+  color: var(--dark-gray);
+  margin-top: 3rem;
+}
+/* footer */
+
+======================================
+
+Creating Responsive Mobile Navigation & Making the Website Responsive :
+
+Since we have used grid throughout our project. By Default the website will be responsive but still lets fix some things. First lets start by building Responsive mobile navigation.
+
+style.css
+=========
+
+/* media queries */
+@media (max-width: 1200px) {
+  .header {
+    padding: 3rem 2rem;
+  }
+
+  .header.active {
+    padding: 2rem;
+  }
+
+  section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .menu {
+    display: block;
+  }
+
+  .header .navbar {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+  }
+
+  .header .navbar.show {
+    transform: translateX(0);
+  }
+
+  .header .navbar a {
+    color: var(--dark-bg);
+    margin: 0;
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+
+  .home .hero-text {
+    font-size: 6rem;
+  }
+}
+/* media queries */
+
+=============================
+
+script.js code
+---------------
+
+const navbar = document.querySelector('.header .navbar');
+const menuButton = document.querySelector('.header .menu');
+
+menuButton.addEventListener('click', () => {
+  navbar.classList.toggle('show');
+});
+
+document.onscroll = () => {
+  navbar.classList.remove('show');
+
+  if (window.scrollY > 0) {
+    document.querySelector('.header').classList.add('active');
+  } else {
+    document.querySelector('.header').classList.remove('active');
+  }
+};
+
+document.onload = () => {
+  if (window.scrollY > 0) {
+    document.querySelector('.header').classList.add('active');
+  } else {
+    document.querySelector('.header').classList.remove('active');
+  }
+};
